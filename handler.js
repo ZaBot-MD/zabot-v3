@@ -499,7 +499,8 @@ module.exports = {
                         } catch (e) {} finally {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc) :
                                 (chat.sBye || this.bye || conn.bye || 'Bye, @user !')).replace('@user', '@' + user.split('@')[0])
-                            this.sendFile(id, pp, 'pp.jpg', text, null, false,{ contextInfo: { mentionedJid: [user] }})
+                                bufff = await this.getBuffer(pp)
+                                this.sendButton(id, text, wm, bufff, [{buttonId: '.ow', buttonText: {displayText: 'HAI 👋'}, type: 1}], null, { contextInfo: { mentionedJid: [user] }})
                         }
                     }
                 }
